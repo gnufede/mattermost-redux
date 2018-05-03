@@ -390,7 +390,7 @@ export function removePlugin(pluginId: string): ActionFunc {
         } catch (error) {
             forceLogoutIfNecessary(error, dispatch, getState);
             dispatch(batchActions([
-                {type: AdminTypes.REMOVE_PLUGIN_FAILURE, error},
+                {type: AdminTypes.REMOVE_PLUGIN_FAILURE, error, data: pluginId},
                 logError(error)(dispatch),
             ]));
             return {error};
@@ -415,7 +415,7 @@ export function activatePlugin(pluginId: string): ActionFunc {
         } catch (error) {
             forceLogoutIfNecessary(error, dispatch, getState);
             dispatch(batchActions([
-                {type: AdminTypes.ACTIVATE_PLUGIN_FAILURE, error},
+                {type: AdminTypes.ACTIVATE_PLUGIN_FAILURE, error, data: pluginId},
                 logError(error)(dispatch),
             ]));
             return {error};
@@ -440,7 +440,7 @@ export function deactivatePlugin(pluginId: string): ActionFunc {
         } catch (error) {
             forceLogoutIfNecessary(error, dispatch, getState);
             dispatch(batchActions([
-                {type: AdminTypes.DEACTIVATE_PLUGIN_FAILURE, error},
+                {type: AdminTypes.DEACTIVATE_PLUGIN_FAILURE, error, data: pluginId},
                 logError(error)(dispatch),
             ]));
             return {error};
